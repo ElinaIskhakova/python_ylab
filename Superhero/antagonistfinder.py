@@ -1,21 +1,13 @@
-from places import Kostroma, Tokyo, AbstractPlace
-from heroes import Superman, ChuckNorris, AbstractNotifier, AbstractHero
-from typing import Union
+from abc import ABC, abstractmethod
 
+ # По SOLID: Создать абстрактный класс Place, обязывающий реализовать метод для поиска злодея
+class AbstractPlace(ABC):
 
-class SavePlace:
+    @property
+    def name(self):
+        raise NotImplementedError(
+                'Определите run в %s.' % (self.__class__.__name__))
 
-    def find_enemy(self):
-        return self.place.get_antagonist()
-
-    def notify(self):
-        self.notifier.publicize(f'{self.hero.name} saved the {self.place.name}!')
-
-    def __init__(self, hero: AbstractHero, place: AbstractPlace, notifier: AbstractNotifier):
-        self.place = place
-        self.hero = hero
-        self.notifier = notifier
-
-        self.find_enemy()
-        hero.attack()
-        self.notify()
+    @abstractmethod
+    def get_antagonist(self):
+        pass

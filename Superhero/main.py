@@ -1,7 +1,7 @@
-from re import T
-from typing import Union
-from heroes import Superman, ChuckNorris, AbstractHero, AbstractNotifier, TV, Newspaper
-from places import AbstractPlace, Kostroma, Tokyo, Planet
+from antagonistfinder import AbstractPlace
+from heroes import Superman, ChuckNorris,TV, Newspaper, AbstractHero, AbstractNotifier
+from places import Kostroma, Tokyo, Planet
+
 
 
 class SavePlace:
@@ -20,8 +20,7 @@ class SavePlace:
         self.find_enemy()
         hero.attack()
         self.notify()
-
-
+        
 if __name__ == '__main__':
     SavePlace(Superman(), Kostroma(), TV())
     print('-' * 20)
