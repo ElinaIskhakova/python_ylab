@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
-
-class CyclicIterator():
+@dataclass
+class CyclicIterator:
     num: list
     index: int = 0
 
